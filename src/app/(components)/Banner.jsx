@@ -37,7 +37,9 @@ const Banner = () => {
     ]
 
   return (
-    <div className="carousel w-full">
+
+    
+    <div className="carousel container py-10 ">
 
 
 {/* making of carusel */}

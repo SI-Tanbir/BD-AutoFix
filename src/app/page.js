@@ -7,7 +7,7 @@ export default function Home() {
   return (
 
 
-   <div>
+   <div className=" max-w-[1248px] m-auto">
 
 
 
@@ -17,6 +17,8 @@ export default function Home() {
 <Banner></Banner>
 
 <Footer></Footer>
+
+
 
    </div>
 
