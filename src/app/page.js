@@ -4,6 +4,7 @@ import Footer from "./(components)/Footer";
 import Banner from "./(components)/Banner";
 import About from "./(components)/About";
 import Service from "./(components)/Service";
+import Calling from "./(components)/Calling";
 
 export default function Home() {
   return (
@@ -24,6 +25,8 @@ export default function Home() {
 
 
   <Service></Service>
+
+  <Calling></Calling>
 
 
 </div>
