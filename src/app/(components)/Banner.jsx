@@ -58,6 +58,8 @@ banner.map((items,index)=>(
       url("/assets/images/banner/${index+1}.jpg")
     `,
 
+
+  
     backgroundSize: "cover",
     backgroundPosition: "top",
 
