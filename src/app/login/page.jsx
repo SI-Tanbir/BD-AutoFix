@@ -27,7 +27,7 @@ const page = () => {
   return (
 
 <div>
-  <Navbar></Navbar>
+
 
 
 

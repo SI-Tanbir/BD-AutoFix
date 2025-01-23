@@ -11,7 +11,7 @@ export default function Home() {
 
 
    <div className=" max-w-[1260px] m-auto">
-<Navbar></Navbar>
+
 
 
 
@@ -33,7 +33,7 @@ export default function Home() {
 
 
 
-<Footer></Footer>
+
 
    </div>
 
