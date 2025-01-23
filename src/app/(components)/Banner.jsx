@@ -39,7 +39,7 @@ const Banner = () => {
   return (
 
     
-    <div className="carousel container py-10 ">
+    <div className="carousel container  ">
 
 
 {/* making of carusel */}
