@@ -9,7 +9,7 @@ const Calling = () => {
   return (
     <div className="place-items-center my-10">
       <div className="flex w-[1000px] p-10 bg-black text-white text-center gap-14 justify-center rounded text-xl">
-
+  
 
         <div className="flex">
           <div > <TbCalendarClock className="text-5xl"/> </div>
