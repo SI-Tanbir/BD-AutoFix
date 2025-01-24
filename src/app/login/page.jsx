@@ -3,6 +3,8 @@ import Image from "next/image";
 import React, { useState } from "react";
 import Navbar from "../(components)/Navbar";
 import { FaFacebook, FaGithub, FaGoogle } from "react-icons/fa6";
+import { signIn } from "next-auth/react";
+
 
 const page = () => {
 
@@ -11,14 +13,17 @@ const page = () => {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
   
-    const handleSubmit = (e) => {
+    const handleSubmit = async(e) => {
       e.preventDefault();
       console.log("Email:", email);
       console.log("Password:", password);
       // Add your login logic here (e.g., API call)
 
-
-
+      const result = await signIn("credentials", {
+        email,
+        password,
+         // Prevent automatic redirect
+      });
 
     };
 
