@@ -1,36 +1,21 @@
+"use client";
+
+import { signOut, useSession } from "next-auth/react";
 import Link from "next/link";
 import React from "react";
 
 const Navbar = () => {
+  const { data: session } = useSession(); // Fetch session on the client
 
-  const nav =[
-    {
-      name:'Home',
-      path:'/'
-    },
-     {
-      name:'About',
-      path:'/'
-    },
-    {
-      name:'Services',
-      path:'/'
-    },
-     {
-      name:'Blog',
-      path:'/'
-    },
-    {
-      name:'Contract',
-      path:'/'
-    },
-    {
-      name:'Login',
-      path:'/login'
-    }
+  const nav = [
+    { name: "Home", path: "/" },
+    { name: "About", path: "/" },
+    { name: "Services", path: "/" },
+    { name: "Blog", path: "/" },
+    { name: "Contact", path: "/" },
+    
+  ];
 
-
-  ]
   return (
     <div className="navbar bg-[#00acb519]">
       <div className="flex-1">
@@ -38,90 +23,37 @@ const Navbar = () => {
       </div>
       <div className="flex-none">
         <ul className="flex gap-14 mr-2">
-          {
-            nav.map((item)=>(
+          {nav.map((item) => (
+            <li
+              className="px-4 py-2 rounded-xl hover:text-white hover:bg-orange-500"
+              key={item.name}
+            >
+              <Link href={item.path}>{item.name}</Link>
+            </li>
+          ))}
 
-              <li className=" px-4 py-2 rounded-xl hover:text-white  hover:bg-orange-500" key={item.name}><Link href={item.path}> {item.name}  </Link></li>
-            ))
-          }
+          {/* Conditionally render Login/Logout based on session */}
+          {session ? (
+            <li
+              className="px-4 py-2 rounded-xl hover:text-white hover:bg-orange-500"
+              onClick={() => signOut()}
+            >
+              Logout
+            </li>
+          ) : (
+            <li
+              className="px-4 py-2 rounded-xl hover:text-white hover:bg-orange-500"
+            >
+              <Link href="/login">Login</Link>
+            </li>
+          )}
           
         </ul>
-        <button className="btn btn-outline text-blue-600 hover:bg-blue-700  ">
+        <button className="btn btn-outline text-blue-600 hover:bg-blue-700">
           Book Appointment
         </button>
       </div>
-
-      {/* my testing part is here */}
-
-      <div className=" ">
-        <div className="flex-none">
-          <div className="dropdown dropdown-end">
-            <div
-              tabIndex={0}
-              role="button"
-              className="btn btn-ghost btn-circle"
-            >
-              <div className="indicator">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  className="h-5 w-5"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth="2"
-                    d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z"
-                  />
-                </svg>
-
-
-              {/* this is the cart number */}
-                <span className="badge badge-sm indicator-item">8</span>
-
-
-              </div>
-            </div>
-            
-            <div
-              tabIndex={0}
-              className="card card-compact dropdown-content bg-base-100 z-[1] mt-3 w-52 shadow"
-            >
-              <div className="card-body">
-                <span className="text-lg font-bold">8 Items</span>
-                <span className="text-info">Subtotal: $999</span>
-                <div className="card-actions">
-                  <button className="btn btn-primary btn-block">
-                    View cart
-                  </button>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div className="dropdown dropdown-end">
-            <div
-              tabIndex={0}
-              role="button"
-              className="btn btn-ghost btn-circle avatar"
-            >
-              <div className="w-10 rounded-full">
-                <img
-                  alt="Tailwind CSS Navbar component"
-                  src="https://img.daisyui.com/images/stock/photo-1534528741775-53994a69daeb.webp"
-                />
-                
-              </div>
-            </div>
-
-
-           
-          </div>
-        </div>
-      </div>
     </div>
-
   );
 };
 
