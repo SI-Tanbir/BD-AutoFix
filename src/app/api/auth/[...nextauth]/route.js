@@ -1,6 +1,8 @@
+import { ConnectDB } from "@/lib/connectDB";
 import NextAuth from "next-auth";
 import CredentialsProvider from "next-auth/providers/credentials";
-import { signIn } from "next-auth/react";
+import bcrypt from "bcrypt";
+import { rule } from "postcss";
 
 const handler = NextAuth({
   providers: [
@@ -13,20 +15,69 @@ const handler = NextAuth({
       async authorize(credentials) {
         const { email, password } = credentials;
 
-        // Replace with your database logic
 
-        return true
-        // if (email === "shafiktanbir@gmail.com" && password === "123456") {
-        //   return { id: 1, name: "Test User", email };
+        if (!email || !password){
+          return null;
+        }
+        if(email){
+
+          const db=await ConnectDB()
+          const coll=await db.collection('user').findOne({"Email":email})
+
+          console.log("testing ",coll)
+          
+          if(!coll){
+            return null
+          }
+
+          const passwordMatched= bcrypt.compareSync(password,coll.Password)
+
+          if(!passwordMatched){
+            return null
+          }
+
+          return coll;
+
+        }
+        // // Connect to the database
+        // const db = await ConnectDB();
+        // const userCollection = db.collection("user");
+        
+        // // Find the user by email
+        // const user = await userCollection.findOne({ email });
+
+
+        // console.log("getting credincial from signin",email)
+
+
+        // console.log(typeof user)
+
+
+        // if (!user) {
+        //   throw new Error("No user found with the entered email");
         // }
-        // return null;
+
+        // // Compare the provided password with the hashed password in the database
+        // const isMatch = await bcrypt.compare(password, user.password);
+        // if (!isMatch) {
+        //   throw new Error("Invalid credentials");
+        // }
+
+        // // Return user object upon successful validation
+        // return {
+        //   id: user._id.toString(),
+        //   name: user.name,
+        //   email: user.email,
+        // };
+
+
       },
     }),
   ],
-  pages:{
-signIn:'/login',
+  pages: {
+    signIn: "/login", // Custom sign-in page
   },
-  secret: process.env.PUBLIC_NEXT_SECRET, // Add this in your .env.local file
+  secret: process.env.NEXTAUTH_SECRET,
 });
 
 export { handler as GET, handler as POST };
