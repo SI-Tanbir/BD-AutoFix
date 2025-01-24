@@ -14,8 +14,8 @@ const Page = () => {
     e.preventDefault();
 
     const data = {
-      Email: email,
-      Password: password,
+      email: email,
+      password: password,
     };
 
     try {
