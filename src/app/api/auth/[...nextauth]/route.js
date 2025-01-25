@@ -2,9 +2,8 @@ import { ConnectDB } from "@/lib/connectDB";
 import NextAuth from "next-auth";
 import CredentialsProvider from "next-auth/providers/credentials";
 import bcrypt from "bcrypt";
-import { rule } from "postcss";
 
-export const authOptions={
+export const authOptions = {
   providers: [
     CredentialsProvider({
       name: "Credentials",
@@ -15,62 +14,30 @@ export const authOptions={
       async authorize(credentials) {
         const { email, password } = credentials;
 
-
-        if (!email || !password){
-          return null;
+        if (!email || !password) {
+          throw new Error("Email and Password are required");
         }
-        if(email){
 
-          const db=await ConnectDB()
-          const coll=await db.collection('user').findOne({"Email":email})
+        // Connect to the database and verify the user
+        const db = await ConnectDB();
+        const user = await db.collection("user").findOne({ Email: email });
 
-          console.log("testing ",coll)
-          
-          if(!coll){
-            return null
-          }
-
-          const passwordMatched= bcrypt.compareSync(password,coll.Password)
-
-          if(!passwordMatched){
-            return null
-          }
-
-          return coll;
-
+        if (!user) {
+          throw new Error("User not found");
         }
-        // // Connect to the database
-        // const db = await ConnectDB();
-        // const userCollection = db.collection("user");
-        
-        // // Find the user by email
-        // const user = await userCollection.findOne({ email });
 
+        // Compare the hashed password
+        const passwordMatched = bcrypt.compareSync(password, user.Password);
+        if (!passwordMatched) {
+          throw new Error("Invalid credentials");
+        }
 
-        // console.log("getting credincial from signin",email)
-
-
-        // console.log(typeof user)
-
-
-        // if (!user) {
-        //   throw new Error("No user found with the entered email");
-        // }
-
-        // // Compare the provided password with the hashed password in the database
-        // const isMatch = await bcrypt.compare(password, user.password);
-        // if (!isMatch) {
-        //   throw new Error("Invalid credentials");
-        // }
-
-        // // Return user object upon successful validation
-        // return {
-        //   id: user._id.toString(),
-        //   name: user.name,
-        //   email: user.email,
-        // };
-
-
+        // Return user data for the session
+        return {
+          id: user._id.toString(),
+          email: user.Email,
+          name: user.Name,
+        };
       },
     }),
   ],
@@ -78,7 +45,29 @@ export const authOptions={
     signIn: "/login", // Custom sign-in page
   },
   secret: process.env.NEXTAUTH_SECRET,
-}
+  session: {
+    strategy: "jwt", // Use JSON Web Tokens for sessions
+    maxAge: 24 * 60 * 60, // 24 hours session duration
+  },
+  callbacks: {
+    async jwt({ token, user }) {
+      // Add user info to the token on login
+      if (user) {
+        token.id = user.id;
+        token.email = user.email;
+        token.name = user.name;
+      }
+      return token;
+    },
+    async session({ session, token }) {
+      // Add token data to the session
+      session.user.id = token.id;
+      session.user.email = token.email;
+      session.user.name = token.name;
+      return session;
+    },
+  },
+};
 
 const handler = NextAuth(authOptions);
 

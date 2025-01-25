@@ -36,12 +36,21 @@ const Navbar = () => {
 
           {/* Conditionally render Login/Logout based on session */}
           {session ? (
+            <>
+                <li className="mt-2" ><Link href={'/my-bookings'}>My Bookings</Link></li>
+
             <li
               className="px-4 py-2 rounded-xl hover:text-white hover:bg-orange-500"
               onClick={() => signOut()}
             >
               Logout
             </li>
+          
+
+            </>
+
+
+            
           ) : (
             <li
               className="px-4 py-2 rounded-xl hover:text-white hover:bg-orange-500"

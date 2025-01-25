@@ -6,7 +6,7 @@ export  async function GET(req, res) {
 
     const db=await ConnectDB()
     const data= await db.collection('services').find({}).toArray()
-    console.log(data)
+    // console.log(data)
 
    return NextResponse.json(data)
   }

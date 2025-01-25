@@ -4,6 +4,7 @@ import { FaArrowRight } from "react-icons/fa";
 // import services from '../../../public/services.json'
 import Image from 'next/image';
 import axios from 'axios';
+import Link from 'next/link';
 
 
 const Service = async() => {
@@ -54,8 +55,9 @@ const Service = async() => {
 
 
       <div className="card-actions justify-end">
-        <button className=" text-orange-600 btn btn-outline hover:bg-orange-600"><FaArrowRight />
-        </button>
+        
+        <Link href={`service-details/${service._id}`}  className=" text-orange-600 btn btn-outline hover:bg-orange-600"><FaArrowRight />
+        </Link>
       </div>
 
 
