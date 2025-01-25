@@ -17,6 +17,8 @@ const Navbar = () => {
   ];
 
   return (
+
+
     <div className="navbar bg-[#00acb519]">
       <div className="flex-1">
         <a className="btn btn-ghost text-xl">BD AutoFix</a>
@@ -47,13 +49,16 @@ const Navbar = () => {
               <Link href="/login">Login</Link>
             </li>
           )}
-          
+
         </ul>
         <button className="btn btn-outline text-blue-600 hover:bg-blue-700">
           Book Appointment
         </button>
       </div>
     </div>
+
+
+
   );
 };
 
