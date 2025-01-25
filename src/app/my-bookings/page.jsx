@@ -13,7 +13,7 @@ const Page = () => {
   const loadEmail = () => {
     if (email) {
       axios
-        .post(`http://localhost:3000/api/mybookings/${email}`)
+        .post(`${process.env.NEXTAUTH_URL}/api/mybookings/${email}`)
         .then((res) => {
           setData(res.data || []); // Use optional chaining to avoid errors
         })
@@ -30,7 +30,7 @@ const Page = () => {
     console.log('Attempting to delete:', id);
 
     axios
-      .post(`http://localhost:3000/api/delete-booking/${id}`)
+      .post(`${process.env.NEXTAUTH_URL}/api/delete-booking/${id}`)
       .then((res) => {
         if (res.data?.deletedCount > 0) {
           console.log('Delete successful, reloading data...');

@@ -11,7 +11,7 @@ const Service = async() => {
 
   // console.log(services)
 
-  const res=await axios.get('http://localhost:3000/api/services/all')
+  const res=await axios.get(`${process.env.NEXTAUTH_URL}/api/services/all`)
 
   const data=res.data
   // console.log(data)
