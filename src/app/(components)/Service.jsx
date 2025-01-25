@@ -22,7 +22,7 @@ const Service = async() => {
 
         <div className='text-center space-y-2 my-10'>
             {/* content adding here */}
-            <span className='text-orange-500 font-bold'>Service</span>
+            <span id='service' className='text-orange-500 font-bold'>Service</span>
             
             <h3 className='text-3xl font-bold'>Our Service Area</h3>
 
