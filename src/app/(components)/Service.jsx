@@ -1,15 +1,19 @@
 
 import React from 'react'
 import { FaArrowRight } from "react-icons/fa";
-import services from '../../../public/services.json'
+// import services from '../../../public/services.json'
 import Image from 'next/image';
+import axios from 'axios';
 
 
-const Service = () => {
+const Service = async() => {
 
   // console.log(services)
 
+  const res=await axios.get('http://localhost:3000/api/services/all')
 
+  const data=res.data
+  // console.log(data)
   return (
     <div className=''>
 
@@ -31,7 +35,7 @@ const Service = () => {
     {/* service card adding here */}
 
 {
-  services.map((service,index)=>(
+  data.map((service,index)=>(
     <div key={index} className="card card-compact bg-base-100 w-96 shadow-md shadow-zinc-800">
       
   
