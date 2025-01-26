@@ -1,7 +1,7 @@
 import Image from 'next/image'
 import React from 'react'
 
-import img1 from '../../../public/assets/images/about_us/person.jpg'
+import img1 from '../../../public/assets/images/about_us/person.jpeg'
 import img2 from '../../../public/assets/images/about_us/parts.jpg'
 
 const About = () => {
@@ -15,7 +15,7 @@ const About = () => {
 {/* adding img here */}
 
     <Image className=' rounded-md shadow-2xl shadow-slate-800'  width={400} height={800} alt='#' src={img1}></Image>
-    <Image className='absolute right-20 shadow-2xl   rounded-md bottom-[-30]'  alt='#' width={200} height={200} src={img2}></Image>
+   
     
 
 </div>

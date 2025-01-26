@@ -5,8 +5,8 @@ const Banner = () => {
    
  const   banner=[
         {
-            title:'hello this is slide one 1',
-            subtitle:'hello this is slide one',
+            title:'AutoFix is now on BD',
+            subtitle:'Anywhere everywhere at your fingertips',
             next:'#slide2',
             prev:'#slide4'
 
@@ -73,7 +73,7 @@ banner.map((items,index)=>(
         <div className=' space-y-4 text-white mt-[40vh] ml-[35vw]' >
 
             <h2 className='text-5xl'>{items.title}</h2>
-            <h2 className='text-3xl'>{items.title}</h2>
+            <h2 className='text-3xl'>{items.subtitle}</h2>
            <div>
 
            <button className='btn mr-4 bg-orange-500  border border-orange-500 text-white ' >Discover More</button>
