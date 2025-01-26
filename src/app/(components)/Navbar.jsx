@@ -9,17 +9,17 @@ const Navbar = () => {
 
   const nav = [
     { name: "Home", path: "/" },
-    { name: "About", path: "/" },
+    { name: "About", path: "/#aboutus" },
     { name: "Services", path: "/#service" },
-    { name: "Blog", path: "/" },
-    { name: "Contact", path: "/" },
+    // { name: "Blog", path: "/" },
+    { name: "Contact", path: "/#contact" },
     
   ];
 
   return (
 
 
-    <div className="navbar bg-[#00acb519]">
+    <div className="navbar bg-[#18bd62] text-white">
       <div className="flex-1">
         <a className="btn btn-ghost text-xl">BD AutoFix</a>
       </div>
@@ -60,7 +60,7 @@ const Navbar = () => {
           )}
 
         </ul>
-        <button className="btn btn-outline text-blue-600 hover:bg-blue-700">
+        <button className="btn btn-outline text-orange-900 hover:bg-orange-700">
           Book Appointment
         </button>
       </div>

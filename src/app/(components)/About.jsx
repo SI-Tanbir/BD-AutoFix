@@ -25,7 +25,7 @@ const About = () => {
 
  {/* content add here */}
  
-<h6>About Us</h6>
+<h6 id='aboutus'>About Us</h6>
 <h3>We are qualified & of experience in this field</h3>
 <p>There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable. </p>
 <p>the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable. </p>

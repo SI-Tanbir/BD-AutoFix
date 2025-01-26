@@ -11,7 +11,7 @@ const Calling = () => {
       <div className="flex w-[1000px] p-10 bg-black text-white text-center gap-14 justify-center rounded text-xl">
   
 
-        <div className="flex">
+        <div id="contact" className="flex">
           <div > <TbCalendarClock className="text-5xl"/> </div>
           <div>
             <p>We are open monday-friday</p>
