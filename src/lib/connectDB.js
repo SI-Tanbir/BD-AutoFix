@@ -14,7 +14,7 @@ export const ConnectDB= async()=>{
     // !adding mongodb conntion string and uri 
     try{
 
-        const uri=process.env.PUBLIC_NEXT_MONGODB_URI
+        const uri=process.env.NEXT_PUBLIC_MONGODB_URI
         const client = new MongoClient(uri, {
             serverApi: {
               version: ServerApiVersion.v1,

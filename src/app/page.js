@@ -1,3 +1,4 @@
+export const dynamic = "force-dynamic" //adding it for force cashing and also for vercel deployed
 import Image from "next/image";
 import Navbar from "./(components)/Navbar";
 import Footer from "./(components)/Footer";

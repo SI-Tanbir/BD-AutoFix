@@ -44,7 +44,7 @@ export const authOptions = {
   pages: {
     signIn: "/login", // Custom sign-in page
   },
-  secret: process.env.NEXTAUTH_SECRET,
+  secret: process.env.NEXT_PUBLIC_NEXTAUTH_SECRET,
   session: {
     strategy: "jwt", // Use JSON Web Tokens for sessions
     maxAge: 24 * 60 * 60, // 24 hours session duration

@@ -28,7 +28,7 @@ const OrderForm = () => {
   }
     console.log(mergedData)
 
-     axios.post(`${process.env.NEXTAUTH_URL}/api/checkout`,mergedData)
+     axios.post(`${process.env.NEXT_PUBLIC_NEXTAUTH_URL}/api/checkout`,mergedData)
      .then(res=> console.log(res.data))
 
 
@@ -46,7 +46,7 @@ const OrderForm = () => {
         useEffect(()=>{
 
 
-            axios.post(`${process.env.NEXTAUTH_URL}/api/services/${id}`)
+            axios.post(`${process.env.NEXT_PUBLIC_NEXTAUTH_URL}/api/services/${id}`)
             .then(res=> setData(res.data))
 
         },[])

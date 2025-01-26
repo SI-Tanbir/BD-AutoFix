@@ -14,7 +14,7 @@ const CarServicePage = () => {
         useEffect(()=>{
 
 
-            axios.post(`${process.env.NEXTAUTH_URL}/api/services/${id}`)
+            axios.post(`${process.env.NEXT_PUBLIC_NEXTAUTH_URL}/api/services/${id}`)
             .then(res=> setData(res.data))
 
         },[])

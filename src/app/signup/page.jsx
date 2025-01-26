@@ -20,7 +20,7 @@ const Page = () => {
 
     try {
       // Send data to the API
-      const res = await axios.post(`${process.env.NEXTAUTH_URL}/api/new-user`, data);
+      const res = await axios.post(`${process.env.NEXT_PUBLIC_NEXTAUTH_URL}/api/new-user`, data);
       const result = res.data;
 
       console.log("API Response:", result);

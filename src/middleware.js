@@ -3,7 +3,7 @@ import { cookies } from "next/headers";
 
 export const middleware = async (request) => {
   // Retrieve the token from cookies
-  const token = cookies().get("next-auth.session-token");
+  const token = cookies().get("__Secure-next-auth.session-token"); //__secure- is addeding for vercel deploy
 
   // Redirect to the login page if the token does not exist
   if (!token) {

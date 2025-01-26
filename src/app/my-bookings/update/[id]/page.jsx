@@ -31,7 +31,7 @@ const InputForm = () => {
     e.preventDefault();
       console.log(inputs); // Update state with submitted data
 
-      axios.post(`${process.env.NEXTAUTH_URL}/my-bookings/update/api/${id}`,inputs)
+      axios.post(`${process.env.NEXT_PUBLIC_NEXTAUTH_URL}/my-bookings/update/api/${id}`,inputs)
       .then(res=>console.log(res.data))
   };
 
@@ -39,7 +39,7 @@ const InputForm = () => {
   useEffect(() => {
     if (id) {
       axios
-        .get(`${process.env.NEXTAUTH_URL}/my-bookings/update/api/${id}`)
+        .get(`${process.env.NEXT_PUBLIC_NEXTAUTH_URL}/my-bookings/update/api/${id}`)
         .then((res) => {
           setInputs({
             name: res.data?.fullname || '',
