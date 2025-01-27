@@ -11,7 +11,7 @@ export default function Home() {
   return (
 
 
-   <div className=" max-w-[1260px] m-auto">
+   <div className=" container m-auto">
 
 
 
