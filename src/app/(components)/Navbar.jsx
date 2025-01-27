@@ -19,7 +19,10 @@ const Navbar = () => {
   return (
 
 
-    <div className="navbar bg-[#18bd62] text-white">
+    <div className=" bg-[#18bd62]  text-white">
+    <div className="navbar container m-auto flex justify-between items-center p-4">
+
+  
       <div className="flex-1">
         <a className="btn btn-ghost text-xl">BD AutoFix</a>
       </div>
@@ -65,7 +68,7 @@ const Navbar = () => {
         </button>
       </div>
     </div>
-
+    </div>
 
 
   );

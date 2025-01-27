@@ -67,10 +67,10 @@ banner.map((items,index)=>(
 
   }}
   
-  key={index} id={`slide${index+1}`} className="carousel-item relative w-full h-[90vh] bg-top ">
+  key={index} id={`slide${index+1}`} className="carousel-item relative w-full h-[500px] bg-top ">
 
 
-        <div className=' space-y-4 text-white mt-[40vh] ml-[35vw]' >
+        <div className=' space-y-4 text-white  my-auto px-14 ' >
 
             <h2 className='text-5xl'>{items.title}</h2>
             <h2 className='text-3xl'>{items.subtitle}</h2>
