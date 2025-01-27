@@ -36,16 +36,16 @@ const page = () => {
 
 
 
-<div className="flex bg-slate-100">
-      <div className="w-[50%]">{/* left side  */}
+<div className="flex items-center justify-center bg-slate-100">
+      <div className="">{/* left side  */}
 
-      <Image src={'/assets/images/login/login.svg'} width={600} height={500} alt='login image' />
+      <Image src={'/assets/images/login/login.svg'} width={500} height={500} alt='login image' />
 
       </div>
 
  
 
-      <div className="w-[50%] ">
+      <div className=" ">
         {/* right side */}
 
         <div className=" ">
